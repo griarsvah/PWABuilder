@@ -4,8 +4,8 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/6.5.4/workbox
 
 const CACHE = "offline-page-v1";
 
-// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
-const offlineFallbackPage = "index.html";
+
+contentToCache.push("images/vector.svg");
 
 self.addEventListener("message", (event) => {
   if (event.data && event.data.type === "SKIP_WAITING") {
@@ -13,10 +13,13 @@ self.addEventListener("message", (event) => {
   }
 });
 
-self.addEventListener('install', async (event) => {
-  event.waitUntil(
-    caches.open(CACHE)
-      .then((cache) => cache.add(offlineFallbackPage))
+
+self.addEventListener("install", (e) => {
+  e.waitUntil(
+    (async () => {
+      const cache = await caches.open(cacheName);
+      await cache.addAll(contentToCache);
+    })(),
   );
 });
 
@@ -59,5 +62,20 @@ self.addEventListener('push', (event) => {
       body: 'Notification Body Text',
       icon: 'images/vector.svg',
     });
+  );
+});
+
+self.addEventListener("activate", (e) => {
+  e.waitUntil(
+    caches.keys().then((keyList) => {
+      return Promise.all(
+        keyList.map((key) => {
+          if (key === cacheName) {
+            return;
+          }
+          return caches.delete(key);
+        }),
+      );
+    }),
   );
 });
