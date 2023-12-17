@@ -22,6 +22,22 @@ self.addEventListener('install', async (event) => {
 
 
 /* Test */
+// Query the user for permission.
+const periodicSyncPermission = await navigator.permissions.query({
+  name: 'periodic-background-sync',
+});
+
+// Check if permission was properly granted.
+if (periodicSyncPermission.state == 'granted') {
+
+  // Register a new periodic sync.
+  await registration.periodicSync.register('fetch-new-content', {
+    // Set the sync to happen no more than once a day.
+    minInterval: 24 * 60 * 60 * 1000
+  });
+} 
+
+
 // Listen for the `periodicsync` event.
 self.addEventListener('periodicsync', event => {
 
