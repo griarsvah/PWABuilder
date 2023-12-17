@@ -6,11 +6,13 @@ const PRECACHE_ASSETS = [
     '/images/'
 ]
 
+const offlineFallbackPage = "index.html";
 
 self.addEventListener('install', event => {
     event.waitUntil((async () => {
-        const cache = await caches.open(CACHE);
         cache.addAll(PRECACHE_ASSETS);
+        caches.open(CACHE)
+        .then((cache) => cache.add(offlineFallbackPage))
     })());
 });
 
