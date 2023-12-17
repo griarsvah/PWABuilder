@@ -1,72 +1,41 @@
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/6.5.4/workbox-sw.js");
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/6.6.1/workbox-sw.js");
 
-// This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+const CACHE_NAME = 'cool-cache';
 
-const CACHE = "offline-page-v1";
-
+// Add whichever assets you want to pre-cache here:
+const PRECACHE_ASSETS = [
+    '/images/'
+]
 
 contentToCache.push("images/vector.svg");
 
-
-self.addEventListener("install", (e) => {
-  e.waitUntil(
-    (async () => {
-      const cache = await caches.open(cacheName);
-      await cache.addAll(contentToCache);
-    })(),
-  );
-});
-
-
-self.addEventListener("activate", (e) => {
-  e.waitUntil(
-    caches.keys().then((keyList) => {
-      return Promise.all(
-        keyList.map((key) => {
-          if (key === cacheName) {
-            return;
-          }
-          return caches.delete(key);
-        }),
-      );
-    }),
-  );
-});
-
-
-
-if (workbox.navigationPreload.isSupported()) {
-  workbox.navigationPreload.enable();
-}
-
-workbox.routing.registerRoute(
-  new RegExp('/*'),
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: CACHE
-  })
-);
-
-
-self.addEventListener('fetch', (event) => {
-  if (event.request.mode === 'navigate') {
-    event.respondWith((async () => {
-      try {
-        const preloadResp = await event.preloadResponse;
-
-        if (preloadResp) {
-          return preloadResp;
-        }
-
-        const networkResp = await fetch(event.request);
-        return networkResp;
-      } catch (error) {
-
+self.addEventListener('install', event => {
+    event.waitUntil((async () => {
         const cache = await caches.open(CACHE);
-        const cachedResp = await cache.match(offlineFallbackPage);
-        return cachedResp;
-      }
+        cache.addAll(PRECACHE_ASSETS);
     })());
-  }
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(self.clients.claim());
+});
+
+self.addEventListener('fetch', event => {
+  event.respondWith(async () => {
+      const cache = await caches.open(CACHE_NAME);
+
+      // match the request to our cache
+      const cachedResponse = await cache.match(event.request);
+
+      // check if we got a valid response
+      if (cachedResponse !== undefined) {
+          // Cache hit, return the resource
+          return cachedResponse;
+      } else {
+        // Otherwise, go to the network
+          return fetch(event.request)
+      };
+  });
 });
 
 self.addEventListener('push', (event) => {
@@ -78,9 +47,29 @@ self.addEventListener('push', (event) => {
   );
 });
 
+self.addEventListener('notificationclick', (event) => {
+    event.notification.close(); 
+    var fullPath = self.location.origin + event.notification.data.path; 
+    clients.openWindow(fullPath); 
+});
 
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
+// Add an event listener for the `sync` event in your service worker.
+self.addEventListener('sync', event => {
+
+  // Check for correct tag on the sync event.
+  if (event.tag === 'database-sync') {
+
+    // Execute the desired behavior with waitUntil().
+    event.waitUntil(
+
+      // This is just a hypothetical function for the behavior we desire.
+      pushLocalDataToDatabase();
+    );
+    }
+});
+
+self.addEventListener('periodicsync', (event) => {
+});
+
+self.addEventListener('message', (event) => {
 });
