@@ -42,7 +42,7 @@ self.addEventListener('push', (event) => {
   event.waitUntil(
     self.registration.showNotification('Notification Title', {
       body: 'Notification Body Text',
-      icon: 'images/vector.svg',
+      icon: 'images/vector.svg'
     });
   );
 });
