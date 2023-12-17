@@ -21,6 +21,31 @@ self.addEventListener('install', async (event) => {
 
 
 
+/* Test */
+// Listen for the `periodicsync` event.
+self.addEventListener('periodicsync', event => {
+
+  // Check for correct tag on the periodicSyncPermissionsync event.
+  if (event.tag === 'fetch-new-content') {
+
+    // Execute the desired behavior with waitUntil().
+    event.waitUntil(
+
+      // This is just a hypothetical function for the behavior we desire.
+      fetchNewContent();
+    );
+  }
+});
+/* /Test */
+
+
+
+
+
+
+
+
+
 
 if (workbox.navigationPreload.isSupported()) {
   workbox.navigationPreload.enable();
