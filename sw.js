@@ -15,6 +15,16 @@ self.addEventListener('install', event => {
 });
 
 
+self.addEventListener('push', (event) => {
+  event.waitUntil(
+    self.registration.showNotification('Notification Title', {
+      body: 'Notification Body Text',
+      icon: '/images/vector.svg',
+    });
+  );
+});
+
+
 self.addEventListener('notificationclick', (event) => {
     event.notification.close(); 
     var fullPath = self.location.origin + event.notification.data.path; 
