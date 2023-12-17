@@ -3,15 +3,6 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/6.6.1/workbox
 
 const CACHE = 'cool-cache';
 
-
-const PRECACHE_ASSETS = [
-    '/index.html',
-    '/sw.js',
-    '/manifest.webmanifest',
-    '/images/'
-]
-
-
 const offlineFallbackPage = "index.html";
 
 self.addEventListener('install', async (event) => {
@@ -20,8 +11,6 @@ self.addEventListener('install', async (event) => {
       .then((cache) => cache.add(offlineFallbackPage))
   );
 });
-
-
 
 
 
