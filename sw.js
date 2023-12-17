@@ -1,12 +1,16 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/6.6.1/workbox-sw.js");
 
+
 const CACHE = 'cool-cache';
+
 
 const PRECACHE_ASSETS = [
     '/images/'
 ]
 
+
 const offlineFallbackPage = "index.html";
+
 
 self.addEventListener('install', event => {
     event.waitUntil((async () => {
@@ -15,17 +19,6 @@ self.addEventListener('install', event => {
         .then((cache) => cache.add(offlineFallbackPage))
     })());
 });
-
-
-self.addEventListener('push', (event) => {
-  event.waitUntil(
-    self.registration.showNotification('Notification Title', {
-      body: 'Notification Body Text',
-      icon: '/images/vector.svg',
-    });
-  );
-});
-
 
 self.addEventListener('notificationclick', (event) => {
     event.notification.close(); 
