@@ -12,8 +12,7 @@ const PRECACHE_ASSETS = [
 const offlineFallbackPage = "index.html";
 
 self.addEventListener('install', async (event) => {
-  event.waitUntil(      
-    cache.addAll(PRECACHE_ASSETS);
+  event.waitUntil(
     caches.open(CACHE)
       .then((cache) => cache.add(offlineFallbackPage))
   );
