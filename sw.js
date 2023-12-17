@@ -7,12 +7,6 @@ const CACHE = "offline-page-v1";
 
 contentToCache.push("images/vector.svg");
 
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
-});
-
 
 self.addEventListener("install", (e) => {
   e.waitUntil(
@@ -22,6 +16,24 @@ self.addEventListener("install", (e) => {
     })(),
   );
 });
+
+
+self.addEventListener("activate", (e) => {
+  e.waitUntil(
+    caches.keys().then((keyList) => {
+      return Promise.all(
+        keyList.map((key) => {
+          if (key === cacheName) {
+            return;
+          }
+          return caches.delete(key);
+        }),
+      );
+    }),
+  );
+});
+
+
 
 if (workbox.navigationPreload.isSupported()) {
   workbox.navigationPreload.enable();
@@ -33,6 +45,7 @@ workbox.routing.registerRoute(
     cacheName: CACHE
   })
 );
+
 
 self.addEventListener('fetch', (event) => {
   if (event.request.mode === 'navigate') {
@@ -65,17 +78,9 @@ self.addEventListener('push', (event) => {
   );
 });
 
-self.addEventListener("activate", (e) => {
-  e.waitUntil(
-    caches.keys().then((keyList) => {
-      return Promise.all(
-        keyList.map((key) => {
-          if (key === cacheName) {
-            return;
-          }
-          return caches.delete(key);
-        }),
-      );
-    }),
-  );
+
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
 });
