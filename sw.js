@@ -1,6 +1,6 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/6.6.1/workbox-sw.js");
 
-const CACHE_NAME = 'cool-cache';
+const CACHE = 'cool-cache';
 
 const PRECACHE_ASSETS = [
     '/images/'
