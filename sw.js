@@ -1,4 +1,4 @@
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.6.1/workbox-sw.js');
 
 const CACHE = "pwabuilder-offline-page";
 
@@ -50,22 +50,3 @@ self.addEventListener('fetch', (event) => {
     })());
   }
 });
-
-
-
-/* Запрос разрешения на отправку уведомлений */
-Notification.requestPermission();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
