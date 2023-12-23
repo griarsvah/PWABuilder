@@ -109,7 +109,7 @@ self.addEventListener('periodicsync', event => {
       // This is just a hypothetical function for the behavior we desire.
       fetchNewContent();
     );
-  }
+  };
 });
 
 
