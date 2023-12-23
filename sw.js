@@ -1,9 +1,25 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/6.6.1/workbox-sw.js");
 
 
-const CACHE = 'cool-cache';
+
+
+
+const CACHE = "pwabuilder-offline-page";
 
 const offlineFallbackPage = "index.html";
+
+
+
+
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
+});
+
+
+
+
 
 self.addEventListener('install', async (event) => {
   event.waitUntil(
@@ -11,8 +27,6 @@ self.addEventListener('install', async (event) => {
       .then((cache) => cache.add(offlineFallbackPage))
   );
 });
-
-
 
 
 
@@ -55,12 +69,6 @@ self.addEventListener('fetch', (event) => {
   }
 });
 
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
-});
-
 
 
 
@@ -77,14 +85,14 @@ self.addEventListener("message", (event) => {
 
 
 // Query the user for permission.
-const periodicSyncPermission = await navigator.permissions.query({
+const periodicSyncPermission =  navigator.permissions.query({
   name: 'periodic-background-sync',
 });
 // Check if permission was properly granted.
 if (periodicSyncPermission.state == 'granted') {
 
   // Register a new periodic sync.
-  await registration.periodicSync.register('fetch-new-content', {
+   registration.periodicSync.register('fetch-new-content', {
     // Set the sync to happen no more than once a day.
     minInterval: 24 * 60 * 60 * 1000
   });
