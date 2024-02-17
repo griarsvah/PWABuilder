@@ -90,15 +90,78 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
 
 ### Recommended
 
-- [x] Manifest has hex encoded background_color
-- [x] Manifest has description field
-- [x] Manifest has display field
-- [x] Icons have at least one icon with purpose any
-- [x] Manifest has an app ID
-- [x] Manifest has launch_handler field
-- [x] Manifest has orientation field
-- [x] Manifest has screenshots field
-- [x] Manifest has hex encoded theme_color
+- [x] [Manifest has hex encoded background_color](https://developer.mozilla.org/en-US/docs/Web/Manifest/background_color)
+```
+"background_color": "#ffffff",
+```
+
+- [x] [Manifest has description field](https://developer.mozilla.org/en-US/docs/Web/Manifest/description)
+```
+"description": "My portfolio, my page, portfolio about me, my works, my skills",
+```
+
+- [x] [Manifest has display field](https://developer.mozilla.org/en-US/docs/Web/Manifest/display)
+```
+"display": "fullscreen" ,
+```
+
+- [x] [Icons have at least one icon with purpose any]()
+```
+    {
+      "src": "images/maskable/icon_x384.png",
+      "type": "image/png",
+      "sizes": "384x384",
+      "purpose": "maskable"
+},
+    {
+      "src": "images/maskable/icon_x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+}
+```
+
+- [x] [Manifest has an app ID](https://developer.mozilla.org/en-US/docs/Web/Manifest/id)
+```
+"id": "index.html",
+```
+
+- [x] [Manifest has launch_handler field](https://developer.mozilla.org/en-US/docs/Web/Manifest/launch_handler)
+```
+"launch_handler": {
+  "client_mode": ["focus-existing", "auto"]
+},
+```
+
+- [x] [Manifest has orientation field](https://developer.mozilla.org/en-US/docs/Web/Manifest/orientation)
+```
+"orientation": "any",
+```
+
+- [x] [Manifest has screenshots field](https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots)
+```
+"screenshots" : [
+  {
+    "src": "screenshot1.webp",
+    "sizes": "1280x720",
+    "type": "image/webp",
+    "form_factor": "wide",
+    "label": "Homescreen of Awesome App"
+  },
+  {
+    "src": "screenshot2.webp",
+    "sizes": "1280x720",
+    "type": "image/webp",
+    "form_factor": "wide",
+    "label": "List of Awesome Resources available in Awesome App"
+  }
+]
+```
+
+- [x] [Manifest has hex encoded theme_color](https://developer.mozilla.org/en-US/docs/Web/Manifest/theme_color)
+```
+"theme_color": "#ffffff",
+```
 
 ### Optional
 
