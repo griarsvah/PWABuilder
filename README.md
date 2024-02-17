@@ -9,10 +9,83 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
 
 ### Required
 
-- [x] Manifest has icons field
-- [x] Manifest has name field
-- [x] Manifest has a short_name field
-- [x] Manifest has start_url field
+- [x] [Manifest has icons field](https://developer.mozilla.org/en-US/docs/Web/Manifest/icons)
+```
+"icons": [
+  {
+    "src": "images/favicons/favicon.ico",
+    "sizes": "64x64 32x32 24x24 16x16",
+    "type": "image/x-icon"
+  },
+  {
+      "src": "images/vector.svg",
+      "type": "image/svg+xml",
+      "sizes": "667x667"
+  },
+{
+      "src": "images/android/launchericon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "images/android/launchericon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+},
+    {
+      "src": "images/maskable/icon_x48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+},
+    {
+      "src": "images/maskable/icon_x72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+},
+    {
+      "src": "images/maskable/icon_x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+},
+    {
+      "src": "images/maskable/icon_x128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+},
+    {
+      "src": "images/maskable/icon_x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+},
+    {
+      "src": "images/maskable/icon_x384.png",
+      "type": "image/png",
+      "sizes": "384x384",
+      "purpose": "maskable"
+},
+    {
+      "src": "images/maskable/icon_x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+}
+],
+
+```
+- [x] [Manifest has name field](https://developer.chrome.com/docs/extensions/mv2/manifest/name?hl=ru)
+```
+"name": "Vahe PWA",
+```
+
+- [x] [Manifest has a short_name field](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/short_name)
+```
+"short_name": "Vahe",
+
+```
+- [x] [Manifest has start_url field](https://developer.mozilla.org/en-US/docs/Web/Manifest/start_url)
+```
+"start_url": "https://griarsvah.github.io/PWABuilder/index.html",
+```
 
 
 ### Recommended
