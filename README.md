@@ -5,6 +5,41 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
 
 ---
 
+## Manifest
+
+### Required
+
+- [x] Manifest has icons field
+- [x] Manifest has name field
+- [x] Manifest has a short_name field
+- [x] Manifest has start_url field
+
+
+### Recommended
+
+- [x] Manifest has hex encoded background_color
+- [x] Manifest has description field
+- [x] Manifest has display field
+- [x] Icons have at least one icon with purpose any
+- [x] Manifest has an app ID
+- [x] Manifest has launch_handler field
+- [x] Manifest has orientation field
+- [x] Manifest has screenshots field
+- [x] Manifest has hex encoded theme_color
+
+### Optional
+
+- [x] Manifest has categories field
+- [x] Manifest specifies a default direction of text
+- [x] Manifest has iarc_rating_id field
+- [x] Manifest specifies a language
+- [x] Manifest properly sets prefer_related_applications field
+- [x] Manifest has related_applications field
+- [x] Manifest has scope field
+- [x] Manifest has scope_extensions field
+
+---
+
 ## App Capabilities
 
 **display_override**
@@ -146,3 +181,13 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
       }
   ]
 ```
+
+----
+
+## Service Worker
+
+* has service worker
+* background sync
+* periodic sync
+* push notifications
+* offline support
