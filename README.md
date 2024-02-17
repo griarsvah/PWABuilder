@@ -2,3 +2,67 @@
 Hey, everybody!
 
 The project is https://www.pwabuilder.com/, helping to build a progressive app. You can also test any site https://www.pwabuilder.com/reportcard?site=https://griarsvah.github.io/PWABuilder, but I want to make a project that will give the best results for all tests. pwabuilder 100%
+
+
+## App Capabilities
+display_override
+```"display_override": ["fullscreen", "standalone", "minimal-ui", "standalone", "window-controls-overlay"],```
+
+edge_side_panel
+```"edge_side_panel": {
+  "preferred_width": 480
+},```
+
+file_handlers
+```"file_handlers": [
+  {
+    "action": "index.html",
+    "accept": {
+      "text/html": [".htm", ".html"]
+    }
+  }
+],```
+
+handle_links
+```"handle_links": "auto",```
+
+protocol_handlers
+```"protocol_handlers": [
+  {
+    "protocol": "web+jngl",
+    "url": "/lookup?type=%s"
+  },
+  {
+    "protocol": "web+jnglstore",
+    "url": "/shop?for=%s"
+  }
+],```
+
+share_target
+```"share_target": {
+      "action": "handle-shared-song",
+      "method": "POST",
+      "enctype": "multipart/form-data",
+      "params": {
+          "title": "title",
+          "files": [
+              {
+                  "name": "audioFiles",
+                  "accept": [
+                      "audio/wav",
+                      "audio/x-wav",
+                      "audio/mpeg",
+                      "audio/mp4",
+                      "audio/aac",
+                      "audio/ogg",
+                      "application/ogg",
+                      "audio/webm",
+                      "audio/flac"
+                  ]
+              }
+          ]
+      }
+  },```
+shortcuts
+
+widgets
