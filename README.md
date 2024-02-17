@@ -255,19 +255,19 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
 
 ## App Capabilities
 
-**display_override**
+[display_override](https://developer.mozilla.org/en-US/docs/Web/Manifest/display_override)
 ```
 "display_override": ["fullscreen", "standalone", "minimal-ui", "standalone", "window-controls-overlay"],
 ```
 
-**edge_side_panel**
+[edge_side_panel]()
 ```
 "edge_side_panel": {
   "preferred_width": 480
 },
 ```
 
-**file_handlers**
+[file_handlers]()
 ```
 "file_handlers": [
   {
@@ -279,12 +279,12 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
 ],
 ```
 
-**handle_links**
+[handle_links]()
 ```
 "handle_links": "auto",
 ```
 
-**protocol_handlers**
+[protocol_handlers]()
 ```
 "protocol_handlers": [
   {
@@ -298,7 +298,7 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
 ],
 ```
 
-**share_target**
+[share_target]()
 ```
 "share_target": {
       "action": "handle-shared-song",
@@ -326,7 +326,7 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
   },
 ```
 
-**shortcuts**
+[shortcuts]()
 ```
 "shortcuts": [
   {
@@ -346,7 +346,7 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
 ],
 ```
 
-**widgets**
+[widgets]()
 ```
 "widgets": [
       {
