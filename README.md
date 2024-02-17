@@ -164,14 +164,92 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
 
 ### Optional
 
-- [x] Manifest has categories field
-- [x] Manifest specifies a default direction of text
-- [x] Manifest has iarc_rating_id field
-- [x] Manifest specifies a language
-- [x] Manifest properly sets prefer_related_applications field
-- [x] Manifest has related_applications field
-- [x] Manifest has scope field
-- [x] Manifest has scope_extensions field
+- [x] [Manifest has categories field](https://developer.mozilla.org/en-US/docs/Web/Manifest/categories)
+```
+"categories": [
+  "education",
+  "personalization",
+  "productivity"
+],
+```
+
+- [x] [Manifest specifies a default direction of text]()
+```
+"dir": "ltr",
+```
+
+- [x] [Manifest has iarc_rating_id field]()
+```
+"iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "share_target": {
+      "action": "handle-shared-song",
+      "method": "POST",
+      "enctype": "multipart/form-data",
+      "params": {
+          "title": "title",
+          "files": [
+              {
+                  "name": "audioFiles",
+                  "accept": [
+                      "audio/wav",
+                      "audio/x-wav",
+                      "audio/mpeg",
+                      "audio/mp4",
+                      "audio/aac",
+                      "audio/ogg",
+                      "application/ogg",
+                      "audio/webm",
+                      "audio/flac"
+                  ]
+              }
+          ]
+      }
+  },
+```
+
+- [x] [Manifest specifies a language]()
+```
+"lang": "en",
+```
+
+- [x] [Manifest properly sets prefer_related_applications field]()
+```
+"prefer_related_applications": false,
+```
+
+- [x] [Manifest has related_applications field]()
+```
+"related_applications": [
+  {
+      "platform": "webapp",
+      "url": "https://griarsvah.github.io/PWABuilder/manifest.webmanifest"
+  },
+  {
+      "platform": "itunes",
+      "url": "index.html"
+  },
+  {
+      "platform": "play",
+      "url": "index.html"
+  },
+  {
+      "platform": "windows",
+      "url": "index.html" 
+  }
+],
+```
+
+- [x] [Manifest has scope field]()
+```
+"scope": "/",
+```
+
+- [x] [Manifest has scope_extensions field]()
+```
+"scope_extensions": [
+  {"origin": "index.html"}
+],
+```
 
 ---
 
