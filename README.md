@@ -187,6 +187,9 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
 ## Service Worker
 
 * has service worker
+> [!TIP]
+> Для выполнения этого условия нужно иметь в корне сайта файла sw.js
+
 * background sync
 * periodic sync
 * push notifications
