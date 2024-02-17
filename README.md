@@ -5,6 +5,7 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
 
 
 ## App Capabilities
+
 **display_override**
 ```"display_override": ["fullscreen", "standalone", "minimal-ui", "standalone", "window-controls-overlay"],```
 
