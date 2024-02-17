@@ -399,7 +399,7 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
 
 ## Service Worker
 
-* - [x] [has service worker]()
+- [x] [has service worker]()
 > [!TIP]
 > Для выполнения этого условия нужно иметь в корне сайта файла index.html
 > ```
@@ -411,7 +411,7 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
 
 * periodic sync
 
-* - [x] [push notifications]()
+- [x] [push notifications]()
 > [!TIP]
 > Для выполнения этого условия нужно в файле sw.js
 > ```
@@ -455,6 +455,6 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
 >         clients.openWindow(event.notification.data.url) // This line will open the URL saved in 'data' when the notification was first created.
 >     );
 > });
-```
+> ```
 
 - [x] [offline support]()
