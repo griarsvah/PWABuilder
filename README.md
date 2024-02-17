@@ -80,7 +80,6 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
 - [x] [Manifest has a short_name field](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/short_name)
 ```
 "short_name": "Vahe",
-
 ```
 - [x] [Manifest has start_url field](https://developer.mozilla.org/en-US/docs/Web/Manifest/start_url)
 ```
