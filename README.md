@@ -189,6 +189,10 @@ The project is https://www.pwabuilder.com/, helping to build a progressive app. 
 * has service worker
 > [!TIP]
 > Для выполнения этого условия нужно иметь в корне сайта файла sw.js
+> ```
+> <script>if (typeof navigator.serviceWorker !== 'undefined') {
+>		navigator.serviceWorker.register('sw.js')
+> }</script>```
 
 * background sync
 * periodic sync
